@@ -150,3 +150,5 @@ MIT
 * * *
 
 Want to support me? If yes, [buy me a coffee](buymeacoff.ee/Ij7WUef0o) ☕. [Beer](paypal.me/benediktengel) is also okay🍻.
+
+Thanks!

@@ -19,4 +19,4 @@
 
 5.  Find the heading `Integrate calendar` and copy your calendarID.
 
-6.  Thats it.
+6.  That's it.
