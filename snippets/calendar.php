@@ -1,4 +1,4 @@
-end<?php
+<?php
 $apikey;
 $calendarID;
 $attributes = array();
