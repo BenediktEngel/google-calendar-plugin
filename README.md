@@ -1,4 +1,4 @@
-# G-CalendarPlugin
+# google-calendar-plugin
 
 Plugin to get easy the content of your Google calendar as a list in your Kirby-Website.
 
