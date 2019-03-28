@@ -1,0 +1,17 @@
+{
+  "name": "benediktengel/G-CalendarPlugin",
+  "description": "Plugin to get easy the content of your Google-calendar in your Kirby-Website",
+  "type": "kirby-plugin",
+  "version": "0.0.1",
+  "readme": "README.md",
+  "license": "MIT",
+  "authors": [{
+    "name": "Benedikt Engel",
+    "email": "info@benediktengel.de",
+    "hompage": "http://www.benediktengel.de",
+    "role": "Developer"
+  }],
+  "require": {
+    "getkirby/composer-installer": "^1.1"
+  }
+}
