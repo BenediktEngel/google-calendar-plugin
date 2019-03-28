@@ -2,23 +2,25 @@
 
 Plugin to get easy the content of your Google calendar as a list in your Kirby-Website.
 
-**Requirements:** Kirby 3
+**Requirements:** [Kirby CMS](https://getkirby.com) >= v3.0.1
 
 ## Installation
+
+There are three ways to get the plugin:
 
 ### Download
 
 Download and copy this repository to `/site/plugins/`.
-Done.
+That's it. You're done.
 
 ### Git submodule
 
-Go to the root of your Project, copy `git submodule add https://github.com/benediktengel/G-CalendarPlugin.git site/plugins/G-CalendarPlugin` in your commandline and press enter.
+Go to the root of your Project, copy `git submodule add https://github.com/benediktengel/G-CalendarPlugin.git site/plugins/G-CalendarPlugin` in your command line and press enter.
 Done. The plugin appears in `site/plugins`.
 
 ### Composer
 
-Copy `composer require benediktengel/G-CalendarPlugin` to your commandline and press enter.
+Copy `composer require benediktengel/G-CalendarPlugin` to your command line and press enter.
 Done. Also here, the plugin appears in `site/plugins`.
 
 ## Setup
@@ -30,34 +32,37 @@ Done. Also here, the plugin appears in `site/plugins`.
 'benediktengel.G-CalendarPlugin.calendarID' => 'YOUR-CALENDAR-ID'
 ```
 
-[How to get them](/howtogetkey.md)
+Need Help? [How to get them.](/howtogetkey.md)
 
 ### 2. Place the snippet in your template
 
 Find the right place for the calendar and add `<?= snippet('calendar') ?>`
 
+### 3. Be glad
+
+You did it.
+
 ## Options
 
 -   Set your API-Key: `benediktengel.G-CalendarPlugin.apikey' => 'YOUR-API-KEY'`
-
     -   required
+
 
 -   Set your calendarID: `'benediktengel.G-CalendarPlugin.calendarID' => 'YOUR-CALENDAR-ID'`
-
     -   required
 
--   Change the date format: `'benediktengel.G-CalendarPlugin.formatDate' => 'd.m.Y'`
 
+-   Change the date format: `'benediktengel.G-CalendarPlugin.formatDate' => 'd.m.Y'`
     -   default: `'d.m.Y'`
     -   optional
 
--   Change the time format: `'benediktengel.G-CalendarPlugin.formatTime' => 'H:i'`
 
+-   Change the time format: `'benediktengel.G-CalendarPlugin.formatTime' => 'H:i'`
     -   default: `'H:i'`
     -   optional
 
--   What attributes of the events do you want: `'benediktengel.G-CalendarPlugin.attributes' => []`
 
+-   What attributes of the events do you want: `'benediktengel.G-CalendarPlugin.attributes' => []`
     -   default: `['title', 'dateStart','timeStart', 'dateEnd', 'timeEnd', 'description', 'location', 'url']`
     -   possible:
         -   `'title'`
@@ -70,25 +75,25 @@ Find the right place for the calendar and add `<?= snippet('calendar') ?>`
         -   `'url'`
     -   optional
 
--   Show only upcoming events: `'benediktengel.G-CalendarPlugin.upcoming' => true`
 
+-   Show only upcoming events: `'benediktengel.G-CalendarPlugin.upcoming' => true`
     -   default: `true`
     -   optional
     -   works only if `attributes` are set to default or the attribute `dateEnd` is set.
 
--   Shorten the displayed description: `'benediktengel.G-CalendarPlugin.descriptionLength' => '300'`
 
+-   Shorten the displayed description: `'benediktengel.G-CalendarPlugin.descriptionLength' => '300'`
     -   default: `'300'`
     -   optional
     -   works only if `cutDescription` is true
 
--   Don't short the description: `'benediktengel.G-CalendarPlugin.cutDescription' => true`
 
+-   Don't short the description: `'benediktengel.G-CalendarPlugin.cutDescription' => true`
     -   default: `true`
     -   optional
 
--   Name of the link: `'benediktengel.G-CalendarPlugin.linkName' => 'Show more.'`
 
+-   Name of the link: `'benediktengel.G-CalendarPlugin.linkName' => 'Show more.'`
     -   default: `'Show more.'`
     -   optional
 
@@ -125,9 +130,14 @@ Find the right place for the calendar and add `<?= snippet('calendar') ?>`
 ## Roadmap
 
 -   [ ] Section for the settings
--   [ ]
+-   [ ] month view
+-   [ ] week view
 
 Wishes? Write an [issue](https://github.com/BenediktEngel/G-CalendarPlugin/issues/new) and use the label `enhancement`.
+
+## Problems?
+
+Write an [issue](https://github.com/BenediktEngel/G-CalendarPlugin/issues/new) and maybe I can help you.
 
 ## License
 
@@ -135,4 +145,8 @@ MIT
 
 ## Credits
 
--   [Benedikt Engel](https://github.com/benediktengel)
+[Benedikt Engel](https://github.com/benediktengel), 2019
+
+* * *
+
+Want to support me? If yes, [buy me a coffee](buymeacoff.ee/Ij7WUef0o) ☕. [Beer](paypal.me/benediktengel) is also okay🍻.

@@ -1,4 +1,4 @@
-<?php
+end<?php
 $apikey;
 $calendarID;
 $attributes = array();
@@ -42,8 +42,8 @@ if ($attributes == null) {
     foreach ($obj['items'] as $event) {
         $events[$i] = array();
         $events[$i] += ["title" => $event['summary']];
-        $events[$i] += ["dateStart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatDate')))];
-        $events[$i] += ["timeStart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatTime')))];
+        $events[$i] += ["datestart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatDate')))];
+        $events[$i] += ["timestart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatTime')))];
         $events[$i] += ["dateEnd" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['end']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatDate')))];
         $events[$i] += ["timeEnd" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['end']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatTime')))];
         $events[$i] += ["url" => $event['htmlLink']];
@@ -67,13 +67,13 @@ else {
             }
         }
         foreach ($attributes as $attirbute) {
-            if ($attirbute == 'dateStart') {
-                $events[$i] += ["dateStart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatDate')))];
+            if ($attirbute == 'datestart') {
+                $events[$i] += ["datestart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatDate')))];
             }
         }
         foreach ($attributes as $attirbute) {
-            if ($attirbute == 'timeStart') {
-                $events[$i] += ["timeStart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatTime')))];
+            if ($attirbute == 'timestart') {
+                $events[$i] += ["timestart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatTime')))];
             }
         }
         foreach ($attributes as $attirbute) {
@@ -119,96 +119,71 @@ if (sizeof($events) != 0) {
                 if (isset($events[$s]['title'])) {
                     echo "<h4 class='calendar-title'>".$events[$s]['title']."</h4>";
                 }
-                // Start TZ und Ende TZ
-                if (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+                if (isset($events[$s]['datestart']) && isset($events[$s]['timestart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                    echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                    echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                    echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span> - <span class='calendar-end'>";
                     echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
-                }
-                // Start TZ und Ende T
-                elseif (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart']) && isset($events[$s]['dateEnd'])) {
+                } elseif (isset($events[$s]['datestart']) && isset($events[$s]['timestart']) && isset($events[$s]['dateEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                    echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                    echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                    echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span> - <span class='calendar-end'>";
                     echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                     echo "</span></p>";
-                }
-                // Start TZ Und Ende Z
-                elseif (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart']) && isset($events[$s]['timeEnd'])) {
+                } elseif (isset($events[$s]['datestart']) && isset($events[$s]['timestart']) && isset($events[$s]['timeEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                    echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                    echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                    echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span> - <span class='calendar-end'>";
                     echo $events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
-                }
-                // Start T und Ende TZ
-                elseif (isset($events[$s]['dateStart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+                } elseif (isset($events[$s]['datestart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                    echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                     echo "</span> - <span class='calendar-end'>";
                     echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
-                }
-                // Start Z und Ende TZ
-                elseif (isset($events[$s]['timeStart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+                } elseif (isset($events[$s]['timestart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                    echo $events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span> - <span class='calendar-end'>";
                     echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
-                }
-                // Start t und ende t
-                elseif (isset($events[$s]['dateStart']) && isset($events[$s]['dateEnd'])) {
+                } elseif (isset($events[$s]['datestart']) && isset($events[$s]['dateEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                    echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                     echo "</span> - <span class='calendar-end'>";
                     echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                     echo "</span></p>";
-                }
-                // Start z und ende z
-                elseif (isset($events[$s]['timeStart']) && isset($events[$s]['timeEnd'])) {
+                } elseif (isset($events[$s]['timestart']) && isset($events[$s]['timeEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                    echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span> - <span class='calendar-end'>";
                     echo $events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
-                }
-                //start tz
-                elseif (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart'])) {
+                } elseif (isset($events[$s]['datestart']) && isset($events[$s]['timestart'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                    echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                    echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                    echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
-                }
-                // Start t
-                elseif (isset($events[$s]['dateStart'])) {
+                } elseif (isset($events[$s]['datestart'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'))."</span></p>";
-                }
-                //Start z
-                elseif (isset($events[$s]['timeStart'])) {
+                    echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'))."</span></p>";
+                } elseif (isset($events[$s]['timestart'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                    echo $events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'))."</span></p>";
-                }
-                //Ende zt
-                elseif (isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+                    echo $events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'))."</span></p>";
+                } elseif (isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-end'>";
                     echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
-                }
-                // ende t
-                elseif (isset($events[$s]['dateEnd'])) {
+                } elseif (isset($events[$s]['dateEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-end'>";
                     echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                     echo "</span></p>";
-                }
-                // ende z
-                elseif (isset($events[$s]['timeEnd'])) {
+                } elseif (isset($events[$s]['timeEnd'])) {
                     echo "<p class='calendar-datetime'><span class='calendar-end'>";
                     echo $events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                     echo "</span></p>";
@@ -236,96 +211,71 @@ if (sizeof($events) != 0) {
             if (isset($events[$s]['title'])) {
                 echo "<h4 class='calendar-title'>".$events[$s]['title']."</h4>";
             }
-            // Start TZ und Ende TZ
-            if (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+            if (isset($events[$s]['datestart']) && isset($events[$s]['timestart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span> - <span class='calendar-end'>";
                 echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
-            }
-            // Start TZ und Ende T
-            elseif (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart']) && isset($events[$s]['dateEnd'])) {
+            } elseif (isset($events[$s]['datestart']) && isset($events[$s]['timestart']) && isset($events[$s]['dateEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span> - <span class='calendar-end'>";
                 echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                 echo "</span></p>";
-            }
-            // Start TZ Und Ende Z
-            elseif (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart']) && isset($events[$s]['timeEnd'])) {
+            } elseif (isset($events[$s]['datestart']) && isset($events[$s]['timestart']) && isset($events[$s]['timeEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span> - <span class='calendar-end'>";
                 echo $events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
-            }
-            // Start T und Ende TZ
-            elseif (isset($events[$s]['dateStart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+            } elseif (isset($events[$s]['datestart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                 echo "</span> - <span class='calendar-end'>";
                 echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
-            }
-            // Start Z und Ende TZ
-            elseif (isset($events[$s]['timeStart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+            } elseif (isset($events[$s]['timestart']) && isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                echo $events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span> - <span class='calendar-end'>";
                 echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
-            }
-            // Start t und ende t
-            elseif (isset($events[$s]['dateStart']) && isset($events[$s]['dateEnd'])) {
+            } elseif (isset($events[$s]['datestart']) && isset($events[$s]['dateEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                 echo "</span> - <span class='calendar-end'>";
                 echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                 echo "</span></p>";
-            }
-            // Start z und ende z
-            elseif (isset($events[$s]['timeStart']) && isset($events[$s]['timeEnd'])) {
+            } elseif (isset($events[$s]['timestart']) && isset($events[$s]['timeEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span> - <span class='calendar-end'>";
                 echo $events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
-            }
-            //start tz
-            elseif (isset($events[$s]['dateStart']) && isset($events[$s]['timeStart'])) {
+            } elseif (isset($events[$s]['datestart']) && isset($events[$s]['timestart'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
-                echo " ".$events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
+                echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
+                echo " ".$events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
-            }
-            // Start t
-            elseif (isset($events[$s]['dateStart'])) {
+            } elseif (isset($events[$s]['datestart'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['dateStart']->format(option('benediktengel.G-CalendarPlugin.formatDate'))."</span></p>";
-            }
-            //Start z
-            elseif (isset($events[$s]['timeStart'])) {
+                echo $events[$s]['datestart']->format(option('benediktengel.G-CalendarPlugin.formatDate'))."</span></p>";
+            } elseif (isset($events[$s]['timestart'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-start'>";
-                echo $events[$s]['timeStart']->format(option('benediktengel.G-CalendarPlugin.formatTime'))."</span></p>";
-            }
-            //Ende zt
-            elseif (isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
+                echo $events[$s]['timestart']->format(option('benediktengel.G-CalendarPlugin.formatTime'))."</span></p>";
+            } elseif (isset($events[$s]['dateEnd']) && isset($events[$s]['timeEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-end'>";
                 echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'))." ".$events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
-            }
-            // ende t
-            elseif (isset($events[$s]['dateEnd'])) {
+            } elseif (isset($events[$s]['dateEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-end'>";
                 echo $events[$s]['dateEnd']->format(option('benediktengel.G-CalendarPlugin.formatDate'));
                 echo "</span></p>";
-            }
-            // ende z
-            elseif (isset($events[$s]['timeEnd'])) {
+            } elseif (isset($events[$s]['timeEnd'])) {
                 echo "<p class='calendar-datetime'><span class='calendar-end'>";
                 echo $events[$s]['timeEnd']->format(option('benediktengel.G-CalendarPlugin.formatTime'));
                 echo "</span></p>";
