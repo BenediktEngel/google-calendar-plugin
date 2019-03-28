@@ -67,12 +67,12 @@ else {
             }
         }
         foreach ($attributes as $attirbute) {
-            if ($attirbute == 'datestart') {
+            if ($attirbute == 'dateStart') {
                 $events[$i] += ["datestart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatDate')))];
             }
         }
         foreach ($attributes as $attirbute) {
-            if ($attirbute == 'timestart') {
+            if ($attirbute == 'timeStart') {
                 $events[$i] += ["timestart" =>  new DateTime(DateTime::createFromFormat("Y-m-d?H:i:sP", $event['start']['dateTime'])->format(option('benediktengel.G-CalendarPlugin.formatTime')))];
             }
         }
@@ -283,11 +283,17 @@ if (sizeof($events) != 0) {
             if (isset($events[$s]['location'])) {
                 echo "<p class='calendar-location'>".$events[$s]['location']."</p>";
             }
-            if (isset($events[$s]['description'])) {
+            if (isset($events[$s]['description']) && isset($events[$s]['url'])) {
                 if (option('benediktengel.G-CalendarPlugin.cutDescription') == true) {
                     echo "<p class='calendar-description'>".substr($events[$s]['description'], 0, option('benediktengel.G-CalendarPlugin.descriptionLength'))."... <a target='_blank' class='calendar-link' href='".$events[$s]['url']."'>".option('benediktengel.G-CalendarPlugin.linkName')."</a></p>";
                 } else {
                     echo "<p class='calendar-description'>".$events[$s]['description']."<a target='_blank' class='calendar-link' href='".$events[$s]['url']."'>".option('benediktengel.G-CalendarPlugin.linkName')."</a></p>";
+                }
+            } elseif (isset($events[$s]['description'])) {
+                if (option('benediktengel.G-CalendarPlugin.cutDescription') == true) {
+                    echo "<p class='calendar-description'>".substr($events[$s]['description'], 0, option('benediktengel.G-CalendarPlugin.descriptionLength'))."... </p>";
+                } else {
+                    echo "<p class='calendar-description'>".$events[$s]['description']."</p>";
                 }
             } elseif (isset($events[$s]['url'])) {
                 echo "<a target='_blank' class='calendar-link' href='".$events[$s]['url']."'>".option('benediktengel.G-CalendarPlugin.linkName')."</a>";
