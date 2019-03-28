@@ -1,5 +1,5 @@
 <?php
-Kirby::plugin('benediktengel/G-CalendarPlugin', [
+Kirby::plugin('benediktengel/google-calendar-plugin', [
   'snippets' => [
       'calendar' => __DIR__ . '/snippets/calendar.php'
   ],

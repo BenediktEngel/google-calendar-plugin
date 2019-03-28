@@ -15,12 +15,12 @@ That's it. You're done.
 
 ### Git submodule
 
-Go to the root of your Project, copy `git submodule add https://github.com/benediktengel/G-CalendarPlugin.git site/plugins/G-CalendarPlugin` in your command line and press enter.
+Go to the root of your Project, copy `git submodule add https://github.com/benediktengel/G´google-calendar-plugin.git site/plugins/google-calendar-plugin` in your command line and press enter.
 Done. The plugin appears in `site/plugins`.
 
 ### Composer
 
-Copy `composer require benediktengel/G-CalendarPlugin` to your command line and press enter.
+Copy `composer require benediktengel/google-calendar-plugin` to your command line and press enter.
 Done. Also here, the plugin appears in `site/plugins`.
 
 ## Setup
@@ -28,8 +28,8 @@ Done. Also here, the plugin appears in `site/plugins`.
 ### 1. Set your API-Key and your calendarID in your `site/config/config.php`
 
 ```php
-'benediktengel.G-CalendarPlugin.apikey' => 'YOUR-API-KEY',
-'benediktengel.G-CalendarPlugin.calendarID' => 'YOUR-CALENDAR-ID'
+'benediktengel.google-calendar-plugin.apikey' => 'YOUR-API-KEY',
+'benediktengel.google-calendar-plugin.calendarID' => 'YOUR-CALENDAR-ID'
 ```
 
 Need Help? [How to get them.](/howtogetkey.md)
@@ -44,25 +44,25 @@ You did it.
 
 ## Options
 
--   Set your API-Key: `benediktengel.G-CalendarPlugin.apikey' => 'YOUR-API-KEY'`
+-   Set your API-Key: `benediktengel.google-calendar-plugin.apikey' => 'YOUR-API-KEY'`
     -   required
 
 
--   Set your calendarID: `'benediktengel.G-CalendarPlugin.calendarID' => 'YOUR-CALENDAR-ID'`
+-   Set your calendarID: `'benediktengel.google-calendar-plugin.calendarID' => 'YOUR-CALENDAR-ID'`
     -   required
 
 
--   Change the date format: `'benediktengel.G-CalendarPlugin.formatDate' => 'd.m.Y'`
+-   Change the date format: `'benediktengel.google-calendar-plugin.formatDate' => 'd.m.Y'`
     -   default: `'d.m.Y'`
     -   optional
 
 
--   Change the time format: `'benediktengel.G-CalendarPlugin.formatTime' => 'H:i'`
+-   Change the time format: `'benediktengel.google-calendar-plugin.formatTime' => 'H:i'`
     -   default: `'H:i'`
     -   optional
 
 
--   What attributes of the events do you want: `'benediktengel.G-CalendarPlugin.attributes' => []`
+-   What attributes of the events do you want: `'benediktengel.google-calendar-plugin.attributes' => []`
     -   default: `['title', 'dateStart','timeStart', 'dateEnd', 'timeEnd', 'description', 'location', 'url']`
     -   possible:
         -   `'title'`
@@ -76,24 +76,24 @@ You did it.
     -   optional
 
 
--   Show only upcoming events: `'benediktengel.G-CalendarPlugin.upcoming' => true`
+-   Show only upcoming events: `'benediktengel.google-calendar-plugin.upcoming' => true`
     -   default: `true`
     -   optional
     -   works only if `attributes` are set to default or the attribute `dateEnd` is set.
 
 
--   Shorten the displayed description: `'benediktengel.G-CalendarPlugin.descriptionLength' => '300'`
+-   Shorten the displayed description: `'benediktengel.google-calendar-plugin.descriptionLength' => '300'`
     -   default: `'300'`
     -   optional
     -   works only if `cutDescription` is true
 
 
--   Don't short the description: `'benediktengel.G-CalendarPlugin.cutDescription' => true`
+-   Don't short the description: `'benediktengel.google-calendar-plugin.cutDescription' => true`
     -   default: `true`
     -   optional
 
 
--   Name of the link: `'benediktengel.G-CalendarPlugin.linkName' => 'Show more.'`
+-   Name of the link: `'benediktengel.google-calendar-plugin.linkName' => 'Show more.'`
     -   default: `'Show more.'`
     -   optional
 
@@ -133,11 +133,11 @@ You did it.
 -   [ ] month view
 -   [ ] week view
 
-Wishes? Write an [issue](https://github.com/BenediktEngel/G-CalendarPlugin/issues/new) and use the label `enhancement`.
+Wishes? Write an [issue](https://github.com/BenediktEngel/google-calendar-plugin/issues/new) and use the label `enhancement`.
 
 ## Problems?
 
-Write an [issue](https://github.com/BenediktEngel/G-CalendarPlugin/issues/new) and maybe I can help you.
+Write an [issue](https://github.com/BenediktEngel/google-calendar-plugin/issues/new) and maybe I can help you.
 
 ## License
 
