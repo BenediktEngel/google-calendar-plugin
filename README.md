@@ -1,24 +1,25 @@
 # G-CalendarPlugin
 
-Plugin to get easy the content of your Google-calendar in your Kirby-Website.
+Plugin to get easy the content of your Google calendar as a list in your Kirby-Website.
+
 **Requirements:** Kirby 3
 
 ## Installation
 
 ### Download
 
-    Download and copy this repository to `/site/plugins/`.
-    Done.
+Download and copy this repository to `/site/plugins/`.
+Done.
 
 ### Git submodule
 
-    Go to the root of your Project, copy `git submodule add https://github.com/benediktengel/G-CalendarPlugin.git site/plugins/G-CalendarPlugin` in your commandline and press enter.
-    Done. The plugin appears in `site/plugins`.
+Go to the root of your Project, copy `git submodule add https://github.com/benediktengel/G-CalendarPlugin.git site/plugins/G-CalendarPlugin` in your commandline and press enter.
+Done. The plugin appears in `site/plugins`.
 
 ### Composer
 
-    Copy `composer require benediktengel/G-CalendarPlugin` to your commandline and press enter.
-    Done. Also here, the plugin appears in `site/plugins`.
+Copy `composer require benediktengel/G-CalendarPlugin` to your commandline and press enter.
+Done. Also here, the plugin appears in `site/plugins`.
 
 ## Setup
 
@@ -29,7 +30,7 @@ Plugin to get easy the content of your Google-calendar in your Kirby-Website.
 'benediktengel.G-CalendarPlugin.calendarID' => 'YOUR-CALENDAR-ID'
 ```
 
-[How to get them](#)
+[How to get them](/howtogetkey.md)
 
 ### 2. Place the snippet in your template
 
